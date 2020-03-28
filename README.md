@@ -1,7 +1,7 @@
 <h1 align="center">C# Logger</h1>
 
 <p align="center">
-  This is a logging system meant to ease debugging in a C# project.
+  This is a logging system meant to ease debugging in a C# projects.
   Can also be used in Unity projects.
 </p>
 
@@ -62,9 +62,9 @@ FINE
 OFF (lowest value)
 ```
 
-The OFF level can be used to turn off logging, and the ALL level can be used to enable logging of all messages.
+The **OFF** level can be used to turn off logging, and the **ALL** level can be used to enable logging of all messages.
 
-Creating a custom level is possible by extending ***Level*** like this:
+Creating a custom level is possible by extending **Level** like this:
 
 ```C#
 class AwesomeLevel : Level
@@ -75,7 +75,8 @@ class AwesomeLevel : Level
 }
 ```
 
-And can be used this way:
+You will then be able to log using the name **AWESOME** and the level **9001** will be checked in the filter against the existing logging level.
+The new logging level can be used this way:
 
 ```C#
 LOGGER.Log(AwesomeLevel.AWESOME, "This is an AWESOME message");
@@ -97,9 +98,9 @@ new Param[]
 LOGGER.Log(Level.SEVERE, "Error at creating file", new FileNotFoundException()); // equivalent to LOGGER.Log(Level.SEVERE, "Error at creating file", exception);
 ```
 
-Note: The objects saved inside Param can be of any type including custom objects
+Note: The objects saved inside Param can be of any type including custom objects.
 
-Assuming you want to change the logging level from ***ALL*** to ***INFO*** so only logs with a level of at least INFO to be logged you can do the following:
+Assuming you want to change the logging level from **ALL** to **INFO** so only logs with a level of at least **INFO** to be logged you can do the following:
 
 ```C#
 LOGGER.Filter = new LevelFilter(Level.INFO);
@@ -118,7 +119,7 @@ Level levelToLog = LOGGER.GetLevel();
 ```
 
 
-If you want to create your own Handler that will, for example, write the logs to the console instead of the file, you may do so by extending the ***Handler*** class like this:
+If you want to create your own Handler that will, for example, write the logs to the console instead of the file, you may do so by extending the **Handler** class like this:
 
 ```C#
 class ConsoleHandler : Handler
@@ -167,14 +168,17 @@ If you want to change the way your logs are being formatted, simply extend the *
 
 The output of all the logs written above is the following:
 
+```XML
 [28-03-2020 18:45:40] INFO - Program(58):LoggerTest - This is an INFO level message.
 [28-03-2020 18:45:40] AWESOME - Program(59):LoggerTest - This is an AWESOME message
 [28-03-2020 18:45:40] WARNING - Program(64):LoggerTest - The amount of energy used this turn. Parameters: { energyUsedThisTurn = 42, energyLeft = 12 }
 [28-03-2020 18:45:40] SEVERE - Program(71):LoggerTest - Error at creating file. Failed with ERROR: Unable to find the specified file.
+```
 
 The default format that the logger is using is giving the following information:
 
+```XML
 [dd-MM-yyyy HH:mm:ss] Level - ClassName(LineNumber):MethodName - Message
-
+```
 
 [![Download API](https://img.shields.io/badge/download-API-blue?style=for-the-badge)](https://github.com/ChiuRobert/SbLogger/releases/latest/download/SbLogger.dll)
