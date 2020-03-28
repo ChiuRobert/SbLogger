@@ -1,7 +1,7 @@
 <h1 align="center">C# Logger</h1>
 
 <p align="center">
-  This is a logging system meant to ease debugging in a C# projects.
+  This is a logging system meant to ease debugging in C# projects.
   Can also be used in Unity projects.
 </p>
 
